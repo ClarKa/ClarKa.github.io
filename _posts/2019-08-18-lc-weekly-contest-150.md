@@ -164,7 +164,7 @@ Since the substring are ordered in lexicographical order. After some observation
 1. It should always be a suffix of the given string.
 2. It should starts with the max letter/character of the given string. 
 
-Lets denote suffix string start with index i as `suffix[i]`. So one thing we can do is that we can find out all the index `i` of the max letter and compare all the corresponding `suffix[i]`. But this will cause TLE when there too many such max letter in the string. So wee need some deduplication strategy to optimize our solution.
+Lets denote suffix string start with index i as `suffix[i]`. So one thing we can do is that we can find out all the index `i` of the max letter and compare all the corresponding `suffix[i]`. But this will cause TLE when there are too many such max letter in the string. So wee need some deduplication strategy to optimize our solution.
 
 After further observation, we found that when there are contiguous letter from index `i` to `j`. 
 
