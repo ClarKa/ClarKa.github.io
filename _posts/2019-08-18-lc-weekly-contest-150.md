@@ -96,5 +96,64 @@ class Solution {
 }
 ```
 
+### 1162. As Far from Land as Possible
+
+For a given water cell `grid[i][j]`. Let `dist[i][j]` denotes its distance to the nearest land cell. 
+
+We can find out that `dist[i][j]`can be calculated by its four neighbors. The expression can be denoted as `dist[i][j] = 1 + Min(dist[i+1][j], dist[i-1][j], dist[i][j-1], dist[i][j+1])`.
+
+Since we need neighbors in four direction to calculater `dist[i][j]`, we can use a two-pass solution to calculate values of all `dist[i][j]`.
+
+In the first pass, we iterate the grid from top-left to bottm-right. And we calculate `dist[i][j]` first based on its top and left neighbors, that is `dist[i-1][j], dist[i][j-1]`.
+
+In the second pass, we iterate the grid from bottom-right to top-left. And then we furhter optimize `dist[i][j]` based on its bottom and right neighbors, that is `dist[i+1][j], dist[i][j+1]`.
+
+In the final step we just need to iterate the whole `dist` and find out the max value which is the answer to return.
+
+```java
+class Solution {
+  	public int maxDistance(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        
+        int[][] dist = new int[m+2][n+2];
+
+        for (int[] row : dist) {
+        	// 1 <= grid.length == grid[0].length <= 100, so max distance is 200
+            Arrays.fill(row, 201);
+        }
+        
+     	// Top Left to Bottom Right
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (grid[i-1][j-1] == 1) {
+                    dist[i][j] = 0;
+                } else {
+                    dist[i][j] = Math.min(dist[i][j], Math.min(dist[i-1][j]+1, dist[i][j-1]+1));   
+                }
+            }
+        }
+        
+      	// Bootom Right to Top Left
+        for (int i = m; i > 0; i--) {
+            for (int j = n; j > 0; j--) {
+                dist[i][j] = Math.min(dist[i][j], Math.min(dist[i+1][j]+1, dist[i][j+1]+1));   
+            }
+        }
+       
+        int ans = -1;
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (grid[i-1][j-1] == 0) {
+                    ans = Math.max(ans, dist[i][j]);
+                }
+            }
+        }
+        
+        return ans == 201 ? -1 : ans;
+    }   
+}
+```
+
 
 
