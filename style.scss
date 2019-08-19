@@ -320,7 +320,7 @@ img {
 //
 
 .wrapper-sidebar {
-  width: 30%;
+  width: $side-info-width;
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-color: $background-color;
@@ -430,7 +430,7 @@ nav {
 
 .wrapper-content {
   float: right;
-  width: 70%;
+  width: 100%-$side-info-width;
 
   @include mobile {
     float: none;
@@ -524,15 +524,16 @@ nav {
 // TOC
 
 .toc {
-  width: 240px;
+  width: $toc-width;
   height: 100%;
-  left: 30%;
+  left: $side-info-width;
   position: fixed;
   z-index: 4;
   padding: 60px 20px 0 20px;
-  
+  font-size: 0.9em;
+
   &:before{
-    content:"目录";
+    content:"Index";
     margin: 0 0 1em 1em;
     font-weight: 700;
     font-size: 1.2em;
@@ -552,7 +553,7 @@ nav {
 
 @media screen and (max-width:2200px) and (min-width:1200px){
   .withtoc{
-    padding-left: 260px;
+    padding-left: $toc-width+20px;
   }
 }
 
@@ -679,7 +680,7 @@ nav {
   clear:both;
   width:100%;
   bottom:0;
-  
+
   @include mobile {
     display: none;
   }
@@ -688,7 +689,7 @@ nav {
 
 .wrapper-footer-mobile {
   display: none;
-  
+
   @include mobile {
     display: block;
     width: 100%;
@@ -722,7 +723,7 @@ footer {
       height: 20px;
       width: 20px;
       fill: $base-lighten-color;
-      
+
       &:hover {
         fill: $link-lighten-color;
       }
