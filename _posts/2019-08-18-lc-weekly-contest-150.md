@@ -174,7 +174,7 @@ For example, in a string `azzzzbc`
 
 ```
 index 0 1 2 3 4 5 6
-char	a z z z z b c
+char  a z z z z b c
 
 We have contiguous letter z from index 1 to 4
 suffix[1] > suffix[2] > suffix[3] > suffix[4] 
