@@ -157,3 +157,72 @@ class Solution {
 
 
 
+### 1163. Last Substring in Lexicographical Order
+
+Since the substring are ordered in lexicographical order. After some observation, we can find out two properties that the answer (the last last substring of `s` in lexicographical order) should have:
+
+1. It should always be a suffix of the given string.
+2. It should starts with the max letter/character of the given string. 
+
+Lets denote suffix string start with index i as `suffix[i]`. So one thing we can do is that we can find out all the index `i` of the max letter and compare all the corresponding `suffix[i]`. But this will cause TLE when there too many such max letter in the string. So wee need some deduplication strategy to optimize our solution.
+
+After further observation, we found that when there are contiguous letter from index `i` to `j`. 
+
+For index `k` between `i` and `j`,`suffix[k = i] > suffix[i < k <= j]`
+
+For example, in a string `azzzzbc`
+
+```
+index 0 1 2 3 4 5 6
+char	a z z z z b c
+
+We have contiguous letter z from index 1 to 4
+suffix[1] > suffix[2] > suffix[3] > suffix[4] 
+zzzzbc    > zzzbc     > zzbc      > zbc
+```
+
+So when we have have contiguous duplicates, we only need to check the first index. 
+
+```java
+class Solution {    
+    public String lastSubstring(String s) {
+        int len = s.length();
+        char[] chars = s.toCharArray();
+        
+        // the answer is always a suffix of the given string start with the max character. 
+        int maxChar = 0;
+        for (int i = 0; i < len; i++) {
+            maxChar = Math.max(maxChar, chars[i]);
+        }
+        
+        int startIdx = -1;
+        for (int i = 0; i < len; i++) {
+            if (chars[i] == maxChar) {
+                startIdx = startIdx == -1 ? i : largerSubstring(chars, startIdx, i);
+            }
+        }
+        
+        return s.substring(startIdx,len);
+    }
+    
+    private int largerSubstring(char[] chars, int startIdx, int curr) {
+        // only need to check the first index as if there is contiguous duplicates. 
+        if (chars[curr] != chars[curr-1]) {
+            for (int i = 1; curr+i < chars.length; i++) {
+                if (chars[startIdx + i] < chars[curr + i]) {
+                    return curr;
+                } 
+                
+                if (chars[startIdx + i] > chars[curr + i]) {
+                    return startIdx;
+                }
+            }
+        }
+        
+        return startIdx;
+    }
+}
+```
+
+
+
