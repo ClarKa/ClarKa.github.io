@@ -39,11 +39,11 @@ paginate: 8
 excerpt_separator: <!-- more -->
 
 # 你的社交网络链接，它们会作为图标出现在你的网站页脚中，可选填写
-footer-links: 
+footer-links:
   weibo: #请输入你的微博个性域名 https://www.weibo.com/<thispart>
   behance: # https://www.behance.net/<>
   dribbble: # https://dribbble.com/<>
-  email: kaifuww@gmail.com 
+  email: kaifuww@gmail.com
   facebook: #https://www.facebook.com/<>
   flickr: #https://www.flickr.com/<>
   github: ClarKa #https://github.com/<>
@@ -53,7 +53,7 @@ footer-links:
   rss: #随便填点啥RSS就能用了
   stackoverflow: # http://stackoverflow.com/<>
   tumblr: # https://<username>.tumblr.com
-  twitter: # https://www.twitter.com/<your_twitter_username> 
+  twitter: # https://www.twitter.com/<your_twitter_username>
   youtube: # channel/<your_long_string> or user/<user-name>
 
 # 站点页脚的文字
@@ -66,16 +66,16 @@ disqus: #shortname
 
 # 输入Gitalk相关设定，即可添加评论区
 gitalk:
-  clientID: 
-  clientSecret: 
-  repo: 
-  owner: 
+  clientID: 68203d357cc39d126f5e
+  clientSecret: c2f8cd357ac6328969ae0f3fcd5aebcbad3cc90c
+  repo: clarka.github.io
+  owner: clarka
 
 # 输入Google Analytics web tracking code
 google_analytics: UA-145787198-1
 
 # 输入你的网站域名（如果你没有添加自己的域名，而是直接用GitHub pages分配的域名的话可以省略）
-url: 
+url:
 
 # 添加你的博客的二级域名，一般来说是你的repository名
 # 如果你的博客的URL是：(http://yourusername.github.io/repository-name)
