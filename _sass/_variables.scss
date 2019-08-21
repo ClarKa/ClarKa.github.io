@@ -93,3 +93,9 @@ $dd-position: $dt-width+$dt-dd-space;
     @content;
   }
 }
+
+// Toc
+$toc-width: 240px;
+
+// Side Info Column
+$side-info-width: 25%;
