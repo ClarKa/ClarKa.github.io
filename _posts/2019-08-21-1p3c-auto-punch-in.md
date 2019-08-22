@@ -62,7 +62,7 @@ class AutoPunch:
                 'fastreply': 0
             })
 
-        print(res.status)
+        print('status: ' + res.status_code)
 
 
 if __name__ == '__main__':
@@ -70,7 +70,7 @@ if __name__ == '__main__':
         data = json.load(json_file)
 
         for account in data:
-            ap = AutoPunch(account['id'], account['password']）
+            ap = AutoPunch(account['id'], account['password'])
             ap.login()
             formhash = ap.get_formhash()
 
