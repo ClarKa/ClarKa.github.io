@@ -91,11 +91,11 @@ accounts.json的格式如下：
 [
     {
         "id": "用户名1",
-        "password": "密码1"
+        "password": "加密密码1"
     },
     {
         "id": "用户名2",
-        "password": "密码2"
+        "password": "加密密码2"
     }
 ]
 ```
