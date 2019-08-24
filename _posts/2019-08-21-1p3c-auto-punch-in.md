@@ -62,7 +62,7 @@ class AutoPunch:
                 'fastreply': 0
             })
 
-        print('status: ' + res.status_code)
+        print(account['id'] + ' status: ' + str(res.status_code))
 
 
 if __name__ == '__main__':
